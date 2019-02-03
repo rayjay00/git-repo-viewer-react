@@ -1,4 +1,4 @@
-##GitHub Profile Viewer
+## GitHub Profile Viewer
 
 Built using React with some help from Moment.js and styled-components.
 
