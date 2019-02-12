@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import FileIcon from './FileIcon';
 import Commit from './Commit';
 import FileName from './Filename';
 import Time from './Time';
@@ -26,15 +25,13 @@ const StyledWrapper = styled.div`
     flex: 1;
 `;
 
-const File = ({ file }) => {
+const File = ({ repo }) => {
     return (
         <StyledFile>
         <StyledWrapper>
-            <FileIcon type={file.type} />
-            <FileName name={file.name} />
+            <FileName name={repo.name} />
         </StyledWrapper>
-            <Commit message={file.latestCommit.message} />
-            <Time time={file.updated_at}/>
+        8
         </StyledFile>
     );
 }
