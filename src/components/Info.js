@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
 
 const StyledNameWrapper = styled.div`
     color: black;
@@ -8,28 +8,41 @@ const StyledNameWrapper = styled.div`
     font-weight: 400;
 `;
 
-const StyledInfoLink = styled.a`    
-    text-decoration: none;
-    text-align: right;
+export const StyledLink = styled.a`
+    background-color: #000000;
+    border-radius: 3px;
+    border: 0;
+    font-family: 'Asap', sans-serif;
     color: white;
-    background-color: darkblue;
-    padding: 0.25rem 1rem;
-    border-radius: 10px;
+    font-size: 1rem;
+    text-transform: capitalize;
+    margin: 0;
+    flex: 0.6;
+    padding: 0.6rem 0.5rem;
+    text-decoration: none !important;
     float: right;
+    height: auto;
+    margin: 0.2rem 0;
 `;
 
-
-
+//card is a prop that is true or false and not stateful
 const Info = ({ name, description, url }) => {
     return (
         <>
-        <StyledNameWrapper>
-            <h4>{ name }</h4>
-            <p>{description}</p>
-            <StyledInfoLink href={url}>See it on GitHub</StyledInfoLink>
-        </StyledNameWrapper>
+            <StyledNameWrapper>
+                <h4>{ name }</h4>
+                <p>{ description }</p>
+                <StyledLink  href= { url } card={ true }>See it on GitHub</StyledLink>
+            </StyledNameWrapper>
         </>
     )
+}
+
+Info.propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    card: PropTypes.bool.isRequired,
+    href: PropTypes.string
 }
 
 export default Info;
