@@ -20,8 +20,10 @@ const StyledInputWrapper = styled.div`
 const Submit = ({ checked, error, handler }) => {
     return (
         <StyledInputWrapper>
-            <InputText />
-            <Button checked={ checked } error={ error } handler={ handler }/>
+            <form action=".">
+                <InputText />
+                <Button checked={ checked } error={ error } handler={ handler }/>
+            </form>
         </StyledInputWrapper>
     );
 }
