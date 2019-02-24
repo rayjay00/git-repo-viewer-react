@@ -9,7 +9,6 @@ const StyledTime = styled.p`
     text-align: right;
     text-transform: capitalize;
     clear: both;
-    margin: 4rem 0 0 0;
 `;
 
 const Time = ( { time }) => {
