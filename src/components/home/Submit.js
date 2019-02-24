@@ -17,16 +17,26 @@ const StyledInputWrapper = styled.div`
     }
 `;
 
-const Submit = ({ checked, error, handler }) => {
-    return (
-        <StyledInputWrapper>
-            <form action=".">
-                <InputText />
-                <Button checked={ checked } error={ error } handler={ handler }/>
-            </form>
-        </StyledInputWrapper>
-    );
+
+
+export default class Submit extends React.Component {
+
+    handleForm(e) {
+        e.preventDefault();
+    }
+
+    render() {
+        const { checked, error, handler } = this.props;
+        return (
+            <StyledInputWrapper>
+                <form onSubmit={ this.handleForm }>
+                    <InputText />
+                    <Button type="button" checked={ checked } error={ error } handler={ handler }/>
+                </form>
+            </StyledInputWrapper>
+        );
+    }
 }
 
-export default Submit;
+
     
