@@ -17,6 +17,17 @@ class UserRepo extends React.Component {
             owner: ""
         };
     }
+
+    listenForSubmit() {
+        document.getElementById("user")
+        .addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("search-btn").click();
+        }
+        });
+    }
+
     //this handler is passed down to the to the InputText component 
     handler() {
         const username = document.getElementById("user").value;
@@ -43,6 +54,10 @@ class UserRepo extends React.Component {
                 error: true
             })
         })
+    }
+
+    componentDidMount() {
+        this.listenForSubmit();
     }
    
     render() {
