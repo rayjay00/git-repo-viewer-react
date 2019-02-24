@@ -16,6 +16,7 @@ export const StyledRepo = styled.div`
         margin: 0 auto;
         margin-top: 1rem;
         padding: 1rem 0;
+        width: auto;
         @media screen and (min-width: 551px) {
             width: 20%;
         }
@@ -26,10 +27,10 @@ export const StyledRepo = styled.div`
     border: 1px solid rgb(95, 106, 125);
     transition: border 0.2s ease-in-out;
     border-radius: 3px;
-    width auto;
     padding: 1rem;
     ${(props) => props.card || 
         `
+            width: 100%;
             @media screen and (min-width: 551px) {
                 width: 48%;
             }
