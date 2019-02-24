@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const StyledExtraInfo = styled.p`
     margin: 0;
-    font-size: 1.4vh;
+    font-size: 1rem;
     margin-bottom: 0.3rem;
 `;
 

@@ -48,7 +48,7 @@ export const StyledButton = styled.button`
     border: 0;
     font-family: 'Asap', sans-serif;
     color: white;
-    font-size: 1.5vh;
+    font-size: 1.3rem;
     text-transform: capitalize;
     margin: 0;
     height: 2.3rem;

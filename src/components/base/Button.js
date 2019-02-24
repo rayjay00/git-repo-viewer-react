@@ -8,7 +8,7 @@ const StyledButton = styled.button`
     border: 0;
     font-family: 'Asap', sans-serif;
     color: white;
-    font-size: 1.5vh;
+    font-size: 1rem;
     text-transform: capitalize;
     margin: 0;
     height: 2.3rem;
@@ -20,7 +20,7 @@ const Button = ( {error, checked, type, card, handler }) => {
     return (
         <StyledButton onClick={ handler } type={ type } error={ error }>
             {card ? 'See on GitHub' :
-            (checked ? 'Search Again' : 'Search For a User')}
+            (checked ? 'Search Again' : 'Search')}
         </StyledButton>
     );
 }
