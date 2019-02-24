@@ -11,7 +11,7 @@ const StyledInput = styled.input`
 
 const InputText = () => {
     return (
-        <StyledInput type="search" placeholder="Enter username here..." id="user" />
+        <StyledInput name="search" type="search" placeholder="Enter username here..." id="user" />
     );
 }
 
