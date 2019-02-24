@@ -25,14 +25,13 @@ export const StyledLink = styled.a`
     margin: 0.2rem 0;
 `;
 
-//card is a prop that is true or false and not stateful
 const Info = ({ name, description, url }) => {
     return (
         <>
             <StyledNameWrapper>
                 <h4>{ name }</h4>
                 <p>{ description }</p>
-                <StyledLink  href= { url } card={ true }>See it on GitHub</StyledLink>
+                <StyledLink href={ url } >See it on GitHub</StyledLink>
             </StyledNameWrapper>
         </>
     )
@@ -41,7 +40,6 @@ const Info = ({ name, description, url }) => {
 Info.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string,
-    card: PropTypes.bool.isRequired,
     href: PropTypes.string
 }
 

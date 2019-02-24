@@ -6,8 +6,6 @@ import Content from './components/home/Content';
 import { StyledHeading } from '../src/styles/base';
 import axios from 'axios';
 import * as serviceWorker from './serviceWorker';
-
-
 class UserRepo extends React.Component {
     constructor(props) {
         super(props);
@@ -16,7 +14,7 @@ class UserRepo extends React.Component {
             username: "",
             checked: false,
             error: false,
-            owner: {}
+            owner: ""
         };
     }
     //this handler is passed down to the to the InputText component 
@@ -35,7 +33,8 @@ class UserRepo extends React.Component {
                 username: username,
                 checked: true,
                 error: false,
-                owner: repos.length > 1 && repos[0]["owner"],
+                owner: repos[0]["owner"],
+                avatar: repos[0]["owner"]["avatar_url"]
             })
         })
         .catch((error) => {
@@ -47,7 +46,7 @@ class UserRepo extends React.Component {
     }
    
     render() {
-        const {checked, error, owner, username, repos} = this.state;
+        const {repos, checked, error, owner, username, avatar} = this.state;
         return (
             <>
                 <Header title="Search for a GitHub User" checked={ checked } error={ error } handler={ this.handler.bind(this) }/>
@@ -55,8 +54,8 @@ class UserRepo extends React.Component {
                     <StyledHeading error={ error }>Oops... Looks like that user doesn't exist. Try again!</StyledHeading>
                     :
                     <>
-                        { Object.keys(owner).length > 0 && <User card= { false } username={ username } /> }
-                        { repos.length > 1 && <Content card={ true } repos={ repos } /> }
+                        { Object.keys(owner).length > 0 && <User username={ username } avatar={ avatar }/> }
+                        { repos.length > 1 && <Content repos={ repos } /> }
                     </>
                 }
             </>
@@ -67,3 +66,4 @@ class UserRepo extends React.Component {
 ReactDOM.render(<UserRepo/>, document.getElementById('root'));
 
 serviceWorker.unregister();
+

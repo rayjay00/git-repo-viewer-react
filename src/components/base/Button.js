@@ -8,7 +8,7 @@ const StyledButton = styled.button`
     border: 0;
     font-family: 'Asap', sans-serif;
     color: white;
-    font-size: 1rem;
+    font-size: 1.5vh;
     text-transform: capitalize;
     margin: 0;
     height: 2.3rem;

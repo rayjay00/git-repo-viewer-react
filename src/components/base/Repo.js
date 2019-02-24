@@ -3,10 +3,10 @@ import { StyledRepo } from '../../styles/base';
 import Info from '../Info';
 import Time from '../Time';
 
-const Repo = ({ repo, card }) => {
+const Repo = ({ repo }) => {
     return (
         <StyledRepo>
-            <Info card= { true } name={repo.name} description={repo.description} url={repo.html_url} />
+            <Info name={repo.name} description={repo.description} url={repo.html_url} />
             <Time time={repo.updated_at} />
         </StyledRepo>
     )

@@ -1,6 +1,12 @@
 import React from 'react';
-import { StyledInput } from '../../styles/base.js';
+import styled from 'styled-components';
 
+const StyledInput = styled.input`
+    height: 100%;
+    height: 2rem;
+    -webkit-appearance:none;
+    flex: 1;
+`;
 
 const InputText = () => {
     return (
