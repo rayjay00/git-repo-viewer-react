@@ -7,6 +7,7 @@ const StyledInput = styled.input`
     -webkit-appearance:none;
     flex: 1;
     border: 1px solid black;
+    font-size: 16px;
 `;
 
 const InputText = () => {

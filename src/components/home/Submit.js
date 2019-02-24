@@ -17,7 +17,10 @@ const StyledInputWrapper = styled.div`
     }
 `;
 
-
+const StyledForm = styled.form`
+    font-size: 16px;
+    width: 100%;
+`;
 
 export default class Submit extends React.Component {
 
@@ -29,10 +32,10 @@ export default class Submit extends React.Component {
         const { checked, error, handler } = this.props;
         return (
             <StyledInputWrapper>
-                <form onSubmit={ this.handleForm }>
+                <StyledForm onSubmit={ this.handleForm }>
                     <InputText />
                     <Button type="button" checked={ checked } error={ error } handler={ handler }/>
-                </form>
+                </StyledForm>
             </StyledInputWrapper>
         );
     }
