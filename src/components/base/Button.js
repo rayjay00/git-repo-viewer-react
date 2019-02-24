@@ -18,7 +18,7 @@ const StyledButton = styled.button`
 //card prop is going to be true or false and will let the button know if it's part of the github project card
 const Button = ( {error, checked, type, card, handler }) => {
     return (
-        <StyledButton onClick={ handler } type={ type } error={ error }>
+        <StyledButton onClick={ handler } type={ type } error={ error } id="search-btn">
             {card ? 'See on GitHub' :
             (checked ? 'Search Again' : 'Search')}
         </StyledButton>
