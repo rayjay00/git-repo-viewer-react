@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from '../src/components/home/Header';
-import User from './components/User';
 import Content from './components/home/Content';
 import { StyledHeading } from '../src/styles/base';
 import axios from 'axios';
@@ -61,15 +60,14 @@ class UserRepo extends React.Component {
     }
    
     render() {
-        const {repos, checked, error, owner, username, avatar} = this.state;
+        const {repos, username, checked, error, avatar} = this.state;
         return (
             <>
-                <Header title="Search for a GitHub User" checked={ checked } error={ error } handler={ this.handler.bind(this) }/>
+                <Header title={username && !error ? username : "Search for a GitHub User"} checked={ checked } error={ error } source={ checked && !error ? avatar : "https://github.githubassets.com/images/modules/logos_page/Octocat.png" } handler={ this.handler.bind(this) }/>
                 { error ?
                     <StyledHeading error={ error }>Oops... Looks like that user doesn't exist. Try again!</StyledHeading>
                     :
                     <>
-                        { Object.keys(owner).length > 0 && <User username={ username } avatar={ avatar }/> }
                         { repos.length > 1 && <Content repos={ repos } /> }
                     </>
                 }
