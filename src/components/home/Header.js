@@ -1,9 +1,9 @@
 import React from 'react';
+import Image from '../base/Image';
 import Heading from '../base/Heading';
 import Submit from './Submit';  
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 //These styles won't go in "base" because they won't be reused
 const StyledHeadingWrapper = styled.div`
     display: flex;
@@ -12,9 +12,10 @@ const StyledHeadingWrapper = styled.div`
     font-family: 'Asap', sans-serif;
 `;
 
-const Header = ({ title, checked, error, handler }) => {
+const Header = ({ source, title, checked, error, handler }) => {
     return (
-        <StyledHeadingWrapper>
+        <StyledHeadingWrapper source={ source }>
+            <Image source= { source }/>
             <Heading title={ title } />
             <Submit checked={ checked } error={ error } handler={ handler }/>
         </StyledHeadingWrapper>
@@ -22,6 +23,7 @@ const Header = ({ title, checked, error, handler }) => {
 };
 
 Header.propTypes = {
+    checked: PropTypes.bool.isRequired,
     title: PropTypes.string,
     checked: PropTypes.bool.isRequired,
     error: PropTypes.bool.isRequired,
