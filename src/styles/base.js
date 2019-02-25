@@ -45,6 +45,7 @@ export const StyledRepo = styled.div`
 
 export const StyledButton = styled.button`
     background-color: ${(props) => props.error ? "red" : "#000000" };
+    font-size: 1.3rem;
     ${(props) => props.card || 
         `
         flex: 0.25;
@@ -52,12 +53,12 @@ export const StyledButton = styled.button`
     ${(props) => props.checked && 
         `
         flex: 0.35;
+        font-size: 1rem;
     ` };
     border-radius: 0;
     border: 0;
     font-family: 'Asap', sans-serif;
     color: white;
-    font-size: 1.3rem;
     text-transform: capitalize;
     margin: 0;
     height: 2.3rem;
