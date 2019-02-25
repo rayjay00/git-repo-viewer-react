@@ -53,7 +53,7 @@ export const StyledButton = styled.button`
     ${(props) => props.checked && 
         `
         flex: 0.35;
-        font-size: 1rem;
+        font-size: 0.8rem;
     ` };
     border-radius: 0;
     border: 0;
