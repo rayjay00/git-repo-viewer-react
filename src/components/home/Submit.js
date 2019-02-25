@@ -20,6 +20,9 @@ const StyledInputWrapper = styled.div`
 const StyledForm = styled.form`
     font-size: 16px;
     width: 100%;
+    display: flex;
+    justify-content: space-around:
+    align-items: center;
 `;
 
 export default class Submit extends React.Component {
