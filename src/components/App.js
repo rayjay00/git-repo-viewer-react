@@ -40,7 +40,7 @@ export default class UserRepo extends React.Component {
                 //I'm still debating this next line
                 repos: repos,
                 username: "",
-                user: "",
+                user: repos[0]["owner"]["login"],
                 checked: true,
                 error: false,
                 owner: repos[0]["owner"],
@@ -67,10 +67,10 @@ export default class UserRepo extends React.Component {
     }
    
     render() {
-        const {repos, username, checked, error, avatar} = this.state;
+        const {repos, username, checked, error, user, avatar} = this.state;
         return (
             <>
-                <Header action={ this.addUsername.bind(this) } title={username && !error ? username : "Search for a GitHub User"} checked={ checked } error={ error } source={ checked && !error ? avatar : "https://github.githubassets.com/images/modules/logos_page/Octocat.png" } handler={ this.handler.bind(this) }/>
+                <Header action={ this.addUsername.bind(this) } title={user && !error ? user : "Search for a GitHub User"} checked={ checked } error={ error } source={ checked && !error ? avatar : "https://github.githubassets.com/images/modules/logos_page/Octocat.png" } handler={ this.handler.bind(this) }/>
                 { error ?
                     <StyledHeading error={ error }>Oops... Looks like that user doesn't exist. Try again!</StyledHeading>
                     :
