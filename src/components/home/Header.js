@@ -12,12 +12,12 @@ const StyledHeadingWrapper = styled.div`
     font-family: 'Asap', sans-serif;
 `;
 
-const Header = ({ source, title, checked, error, handler }) => {
+const Header = ({ action, source, title, checked, error, handler }) => {
     return (
         <StyledHeadingWrapper source={ source }>
             <Image source= { source }/>
             <Heading title={ title } />
-            <Submit checked={ checked } error={ error } handler={ handler }/>
+            <Submit username={ action } checked={ checked } error={ error } handler={ handler }/>
         </StyledHeadingWrapper>
     );
 };
@@ -25,7 +25,6 @@ const Header = ({ source, title, checked, error, handler }) => {
 Header.propTypes = {
     checked: PropTypes.bool.isRequired,
     title: PropTypes.string,
-    checked: PropTypes.bool.isRequired,
     error: PropTypes.bool.isRequired,
     handler: PropTypes.func.isRequired
 }

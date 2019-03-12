@@ -10,9 +10,9 @@ const StyledInput = styled.input`
     -webkit-appearance: none;
 `;
 
-const InputText = () => {
+const InputText = ({ username }) => {
     return (
-        <StyledInput name="search" type="search" placeholder="Enter username here..." id="user" />
+        <StyledInput onChange={ username } name="search" type="search" placeholder="Enter username here..." id="user" />
     );
 }
 
