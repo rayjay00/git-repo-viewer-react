@@ -3,7 +3,6 @@ import Header from './home/Header';
 import Content from './home/Content';
 import { StyledHeading } from '../styles/base';
 import axios from 'axios';
-
 export default class UserRepo extends React.Component {
     constructor(props) {
         super(props);
@@ -12,25 +11,28 @@ export default class UserRepo extends React.Component {
             username: "",
             checked: false,
             error: false,
-            owner: ""
+            owner: "",
+            value: ""
         };
     }
+
+
 
     //Is document.getElementById the best solution here?
     //Also should this live in the input text component instead of here?
     listenForSubmit() {
         document.getElementById("user").addEventListener("keyup", function(e) {
             e.preventDefault();
-                if (e.keyCode === 13) {
-                    document.getElementById("search-btn").click();
-                }
+            if (e.keyCode === 13) {
+                document.getElementById("search-btn").click();
+            }
         });
     }
 
     //this handler is passed down to the to the InputText component 
-    handler() {
+    getRepos = () => {
         //is there a way to grab username from state? when i trie, I had to click the submit button twice
-        axios.get(`https://api.github.com/users/${this.state.username}/repos`)
+        axios.get(`https://api.github.com/users/${this.state.value}/repos`)
         
         .then(res => {
             const repos = res.data;
@@ -55,10 +57,9 @@ export default class UserRepo extends React.Component {
         })
     }
 
-    addUsername(e) {
-        console.log('ran fun');
+    addUsername = (e) => {
         this.setState({
-            username: e.target.value
+            value: e.target.value
         })
     }
 
@@ -67,10 +68,10 @@ export default class UserRepo extends React.Component {
     }
    
     render() {
-        const {repos, username, checked, error, user, avatar} = this.state;
+        const {repos, checked, error, user, avatar, value} = this.state;
         return (
-            <>
-                <Header action={ this.addUsername.bind(this) } title={user && !error ? user : "Search for a GitHub User"} checked={ checked } error={ error } source={ checked && !error ? avatar : "https://github.githubassets.com/images/modules/logos_page/Octocat.png" } handler={ this.handler.bind(this) }/>
+            <>  
+                <Header action={ this.addUsername } value={ value } title={user && !error ? user : "Search for a GitHub User"} checked={ checked } error={ error } source={ checked && !error ? avatar : "https://github.githubassets.com/images/modules/logos_page/Octocat.png" } handler={ this.getRepos }/>
                 { error ?
                     <StyledHeading error={ error }>Oops... Looks like that user doesn't exist. Try again!</StyledHeading>
                     :
