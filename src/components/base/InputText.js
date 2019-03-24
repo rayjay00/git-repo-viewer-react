@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const StyledInput = styled.input`
-    height: 2.3rem;
     -webkit-appearance:none;
     flex: 1;
     border: 1px solid black;
@@ -10,9 +10,10 @@ const StyledInput = styled.input`
     -webkit-appearance: none;
 `;
 
-const InputText = ({ username }) => {
+
+const InputText = ({ username, value }) => {
     return (
-        <StyledInput onChange={ username } name="search" type="search" placeholder="Enter username here..." id="user" />
+        <StyledInput onChange={ username } value={ value } name="search" type="text" nametype="search" placeholder="Enter username here..." id="user" />
     );
 }
 
