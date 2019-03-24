@@ -31,10 +31,10 @@ export const StyledRepo = styled.div`
     ${(props) => props.card || 
         `
             width: 100%;
-            @media screen and (min-width: 551px) {
-                width: 48%;
+            @media screen and (min-width: 667px) {
+                width: 45%;
             }
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 1261px) {
                 width: 30%;
             }
     ` };
