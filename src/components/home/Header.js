@@ -12,12 +12,12 @@ const StyledHeadingWrapper = styled.div`
     font-family: 'Asap', sans-serif;
 `;
 
-const Header = ({ action, source, title, checked, error, handler }) => {
+const Header = (props) => {
     return (
-        <StyledHeadingWrapper source={ source }>
-            <Image source= { source }/>
-            <Heading title={ title } />
-            <Submit username={ action } checked={ checked } error={ error } handler={ handler }/>
+        <StyledHeadingWrapper source={ props.source }>
+            <Image source= { props.source }/>
+            <Heading title={ props.title } />
+            <Submit user={ props.value } value={ props.value } username={ props.action } checked={ props.checked } error={ props.error } handler={ props.handler }/>
         </StyledHeadingWrapper>
     );
 };
