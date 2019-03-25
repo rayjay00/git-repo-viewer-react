@@ -12,25 +12,17 @@ export default class UserRepo extends React.Component {
             checked: false,
             error: false,
             owner: "",
-            value: ""
+            value: "",
+            loading: false
         };
     }
 
-
-
-    //Is document.getElementById the best solution here?
-    //Also should this live in the input text component instead of here?
-    listenForSubmit() {
-        document.getElementById("user").addEventListener("keyup", function(e) {
-            e.preventDefault();
-            if (e.keyCode === 13) {
-                document.getElementById("search-btn").click();
-            }
-        });
-    }
-
+    
     //this handler is passed down to the to the InputText component 
     getRepos = () => {
+        this.setState({
+            loading: true
+        });
         //is there a way to grab username from state? when i trie, I had to click the submit button twice
         axios.get(`https://api.github.com/users/${this.state.value}/repos`)
         
@@ -46,13 +38,15 @@ export default class UserRepo extends React.Component {
                 checked: true,
                 error: false,
                 owner: repos[0]["owner"],
-                avatar: repos[0]["owner"]["avatar_url"]
+                avatar: repos[0]["owner"]["avatar_url"],
+                loading: false
             })
         })
         .catch((error) => {
             console.log("error", error);
             this.setState({
-                error: true
+                error: true,
+                loading: false
             })
         })
     }
@@ -62,15 +56,11 @@ export default class UserRepo extends React.Component {
             value: e.target.value
         })
     }
-
-    componentDidMount() {
-        this.listenForSubmit();
-    }
    
     render() {
         const {repos, checked, error, user, avatar, value} = this.state;
         return (
-            <>  
+            <> 
                 <Header action={ this.addUsername } value={ value } title={user && !error ? user : "Search for a GitHub User"} checked={ checked } error={ error } source={ checked && !error ? avatar : "https://github.githubassets.com/images/modules/logos_page/Octocat.png" } handler={ this.getRepos }/>
                 { error ?
                     <StyledHeading error={ error }>Oops... Looks like that user doesn't exist. Try again!</StyledHeading>
