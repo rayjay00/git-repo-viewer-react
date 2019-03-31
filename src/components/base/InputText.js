@@ -11,6 +11,7 @@ const StyledInput = styled.input`
 
 
 const InputText = ({ username, value }) => {
+    
     const listenForSubmit = (e) => {
         if (e.keyCode === 13) {
             document.getElementById("search-btn").click();   
@@ -18,7 +19,14 @@ const InputText = ({ username, value }) => {
     }
 
     return (
-        <StyledInput onKeyDown={ listenForSubmit }  onChange={ username }value={ value } name="search" type="text" nametype="search" placeholder="Enter username here..." id="user" />
+        <StyledInput onKeyDown={ listenForSubmit }  
+        onChange={ username } 
+        value={ value } 
+        name="search" 
+        type="text" 
+        nametype="search" 
+        defaultValue="Enter username here..." 
+        id="user" />
     );
 }
 
