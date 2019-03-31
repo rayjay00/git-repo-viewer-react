@@ -3,7 +3,7 @@ import Header from './home/Header';
 import Content from './home/Content';
 import { StyledHeading } from '../styles/base';
 import axios from 'axios';
-export default class UserRepo extends React.Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -65,7 +65,7 @@ export default class UserRepo extends React.Component {
                     <StyledHeading error={ error }>Oops... Looks like that user doesn't exist. Try again!</StyledHeading>
                     :
                     <>
-                        { repos.length > 1 && <Content repos={ repos } /> }
+                        { repos.length > 1 && <Content name={ user } repos={ repos } /> }
                     </>
                 }
             </>
