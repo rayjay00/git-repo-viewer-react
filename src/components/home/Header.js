@@ -1,8 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 import Image from '../base/Image';
 import Heading from '../base/Heading';
 import Submit from './Submit';  
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 //These styles won't go in "base" because they won't be reused
 const StyledHeadingWrapper = styled.div`
@@ -12,21 +12,28 @@ const StyledHeadingWrapper = styled.div`
     font-family: 'Asap', sans-serif;
 `;
 
-const Header = (props) => {
+const Header = ({ source, title, error, value, addUsername, checked, getRepos }) => {
     return (
-        <StyledHeadingWrapper source={ props.source }>
-            <Image source= { props.source }/>
-            <Heading title={ props.title } />
-            <Submit user={ props.value } value={ props.value } username={ props.action } checked={ props.checked } error={ props.error } handler={ props.handler }/>
+        <StyledHeadingWrapper>
+            <Image source= { source }/>
+            <Heading title={ title } 
+            error={ error } />
+            <Submit user={ value } 
+            addUsername={ addUsername } 
+            checked={ checked } 
+            error={ error } 
+            getRepos={ getRepos }/>
         </StyledHeadingWrapper>
     );
 };
 
 Header.propTypes = {
-    checked: PropTypes.bool.isRequired,
-    title: PropTypes.string,
+    source: PropTypes.string,
+    title: PropTypes.string.isRequired,
     error: PropTypes.bool.isRequired,
-    handler: PropTypes.func.isRequired
+    user: PropTypes.string,
+    addUsername: PropTypes.func.isRequired,
+    getRepos: PropTypes.func.isRequired
 }
 
 export default Header;
