@@ -32,11 +32,11 @@ export default class Submit extends React.Component {
     }
 
     render() {
-        const { username, checked, error, handler, user, value } = this.props;
+        const { username, checked, error, handler, value } = this.props;
         return (
             <StyledInputWrapper>
                 <StyledForm onSubmit={ this.handleForm }>
-                    <InputText usertry={ user } value={ value } username={ username }/>
+                    <InputText value={ value } username={ username }/>
                     <Button type="button" checked={ checked } error={ error } handler={ handler }/>
                 </StyledForm>
             </StyledInputWrapper>
