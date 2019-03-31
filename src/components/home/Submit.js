@@ -1,5 +1,4 @@
 import React from 'react';
-import InputText from '../base/InputText';
 import Button from '../base/Button';
 import styled from 'styled-components';
 
@@ -25,24 +24,69 @@ const StyledForm = styled.form`
     align-items: center;
 `;
 
-export default class Submit extends React.Component {
+const StyledInput = styled.input`
+    -webkit-appearance:none;
+    flex: 1;
+    border: 1px solid black;
+    font-size: 16px;
+    -webkit-appearance: none;
+`;
 
-    handleForm(e) {
-        e.preventDefault();
+const Submit = ({ getRepos, checked, error }) => {
+
+    const usernameRef = React.createRef();
+
+    const handleForm = event => {
+        event.preventDefault();
+        const usernameInput = usernameRef.current.value
+        getRepos(usernameInput);
     }
 
-    render() {
-        const { username, checked, error, handler, value } = this.props;
-        return (
-            <StyledInputWrapper>
-                <StyledForm onSubmit={ this.handleForm }>
-                    <InputText value={ value } username={ username }/>
-                    <Button type="button" checked={ checked } error={ error } handler={ handler }/>
-                </StyledForm>
-            </StyledInputWrapper>
-        );
-    }
+    return (
+        <StyledInputWrapper>
+            <StyledForm onSubmit={ handleForm }>
+                <StyledInput 
+                name="search" 
+                type="text" 
+                ref={ usernameRef }
+                nametype="search" 
+                placeholder="Enter username here..." 
+                />
+                <Button type="submit" checked={ checked } error={ error } />
+            </StyledForm>
+        </StyledInputWrapper>
+    );
+
 }
+
+export default Submit;
+// export default class Submit extends React.Component {
+//     usernameRef = React.createRef();
+
+//     handleForm = event => {
+//         event.preventDefault();
+//         const usernameInput = this.usernameRef.current.value
+//         this.props.getRepos(usernameInput);
+//     }
+
+//     render() {
+//         const { checked, error } = this.props;
+//         return (
+//             <StyledInputWrapper>
+//                 <StyledForm onSubmit={ this.handleForm }>
+//                     <StyledInput 
+//                     name="search" 
+//                     type="text" 
+//                     ref={ this.usernameRef }
+//                     nametype="search" 
+//                     placeholder="Enter username here..." 
+//                     />
+//                     <Button type="submit" checked={ checked } error={ error } />
+//                 </StyledForm>
+//             </StyledInputWrapper>
+//         );
+//     }
+// }
 
 
     
