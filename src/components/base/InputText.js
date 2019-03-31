@@ -25,7 +25,7 @@ const InputText = ({ username, value }) => {
         name="search" 
         type="text" 
         nametype="search" 
-        defaultValue="Enter username here..." 
+        placeholder="Enter username here..." 
         id="user" />
     );
 }
