@@ -6,6 +6,7 @@ export const StyledHeading = styled.h1`
     color: black;
     ${(props) => props.error && `text-align: center;` };
     ${(props) => props.error || `margin-bottom: 0.2rem;` };
+    text-align: center;
 `;
 
 export const StyledRepo = styled.div`
