@@ -3,7 +3,7 @@ import Header from './home/Header';
 import Content from './home/Content';
 import { StyledHeading } from '../styles/base';
 import axios from 'axios';
-export default class UserRepo extends React.Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
