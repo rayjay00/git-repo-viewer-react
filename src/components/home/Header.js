@@ -15,7 +15,7 @@ const StyledHeadingWrapper = styled.div`
 const Header = ({ source, title, error, value, addUsername, checked, getRepos }) => {
     return (
         <StyledHeadingWrapper>
-            <Image source= { source }/>
+            <Image source={ source }/>
             <Heading title={ title } 
             error={ error } />
             <Submit user={ value } 

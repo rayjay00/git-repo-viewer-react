@@ -56,37 +56,6 @@ const Submit = ({ getRepos, checked, error }) => {
             </StyledForm>
         </StyledInputWrapper>
     );
-
 }
 
 export default Submit;
-// export default class Submit extends React.Component {
-//     usernameRef = React.createRef();
-
-//     handleForm = event => {
-//         event.preventDefault();
-//         const usernameInput = this.usernameRef.current.value
-//         this.props.getRepos(usernameInput);
-//     }
-
-//     render() {
-//         const { checked, error } = this.props;
-//         return (
-//             <StyledInputWrapper>
-//                 <StyledForm onSubmit={ this.handleForm }>
-//                     <StyledInput 
-//                     name="search" 
-//                     type="text" 
-//                     ref={ this.usernameRef }
-//                     nametype="search" 
-//                     placeholder="Enter username here..." 
-//                     />
-//                     <Button type="submit" checked={ checked } error={ error } />
-//                 </StyledForm>
-//             </StyledInputWrapper>
-//         );
-//     }
-// }
-
-
-    
