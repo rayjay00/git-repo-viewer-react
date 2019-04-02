@@ -1,20 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 import Image from '../base/Image';
 import Heading from '../base/Heading';
 import Submit from './Submit';  
 import PropTypes from 'prop-types';
-//These styles won't go in "base" because they won't be reused
-const StyledHeadingWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Asap', sans-serif;
-`;
+import ColumnContainer from '../ColumnContainer';
 
 const Header = ({ source, title, error, value, addUsername, checked, getRepos }) => {
     return (
-        <StyledHeadingWrapper>
+        <ColumnContainer>
             <Image source={ source }/>
             <Heading title={ title } 
             error={ error } />
@@ -23,7 +16,7 @@ const Header = ({ source, title, error, value, addUsername, checked, getRepos })
             checked={ checked } 
             error={ error } 
             getRepos={ getRepos }/>
-        </StyledHeadingWrapper>
+        </ColumnContainer>
     );
 };
 
