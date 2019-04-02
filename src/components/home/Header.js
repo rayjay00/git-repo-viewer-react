@@ -12,14 +12,13 @@ const StyledHeadingWrapper = styled.div`
     font-family: 'Asap', sans-serif;
 `;
 
-const Header = ({ source, title, error, value, addUsername, checked, getRepos }) => {
+const Header = ({ source, title, error, value, checked, getRepos }) => {
     return (
         <StyledHeadingWrapper>
             <Image source={ source }/>
             <Heading title={ title } 
             error={ error } />
             <Submit user={ value } 
-            addUsername={ addUsername } 
             checked={ checked } 
             error={ error } 
             getRepos={ getRepos }/>
@@ -32,7 +31,6 @@ Header.propTypes = {
     title: PropTypes.string.isRequired,
     error: PropTypes.bool.isRequired,
     user: PropTypes.string,
-    addUsername: PropTypes.func.isRequired,
     getRepos: PropTypes.func.isRequired
 }
 
