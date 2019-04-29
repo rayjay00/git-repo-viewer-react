@@ -16,7 +16,7 @@ const Heading = ({ title }) => {
             <StyledHeading>
             { title }
             </StyledHeading>
-            <StyledExtraInfo>Made by <a href="https://www.github.com/rayjay00" target="_blank" rel="noopener noreferrer">Ryan</a>.</StyledExtraInfo>
+            <StyledExtraInfo>Made by <a href="https://www.ryanjordal.me/" target="_blank" rel="noopener noreferrer">Ryan</a>.</StyledExtraInfo>
         </>
     );
 }
