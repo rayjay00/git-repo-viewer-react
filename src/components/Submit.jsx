@@ -5,6 +5,7 @@ import Button from './Button';
 
 const StyledInputWrapper = styled.div`
   display: flex;
+  width 100%;
   @media screen and (min-width: 551px) {
     width: 70%;
   }
