@@ -23,7 +23,6 @@ export default class App extends React.Component {
       .get(`https://api.github.com/users/${username}/repos`)
       .then(res => {
         const repos = res.data;
-        console.log('repos', repos);
         this.setState({
           checked: true,
           user: repos[0]['owner']['login'],
@@ -33,7 +32,7 @@ export default class App extends React.Component {
         });
       })
       .catch(error => {
-        console.log('error', error);
+        console.error('error', error);
         this.setState({
           error: true,
           loading: false,
