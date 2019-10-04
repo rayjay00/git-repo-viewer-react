@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import PropTypes from 'prop-types';
+
 import Button from './Button';
 
 const StyledInputWrapper = styled.div`
@@ -33,13 +35,18 @@ const StyledInput = styled.input`
   -webkit-appearance: none;
 `;
 
-const Submit = ({ getRepos, checked, error }) => {
+const Submit = ({ checked, error, setUser }) => {
   const usernameRef = React.createRef();
 
   const handleForm = event => {
     event.preventDefault();
+
     const usernameInput = usernameRef.current.value;
-    getRepos(usernameInput);
+
+    setUser({
+      type: 'USERNAME_SET',
+      payload: usernameInput
+    });
   };
 
   return (
@@ -59,9 +66,9 @@ const Submit = ({ getRepos, checked, error }) => {
 };
 
 Submit.propTypes = {
-  getRepos: PropTypes.func.isRequired,
   checked: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired
+  error: PropTypes.bool.isRequired,
+  setUser: PropTypes.func.isRequired
 };
 
 export default Submit;

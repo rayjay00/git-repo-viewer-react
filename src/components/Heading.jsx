@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { StyledHeading } from '../styles/base';
@@ -12,7 +12,7 @@ const StyledExtraInfo = styled.p`
 // card prop is going to be true or false and will let the button know if it's part of the github project card
 const Heading = ({ title }) => {
   return (
-    <React.Fragment>
+    <Fragment>
       <StyledHeading>{title}</StyledHeading>
       <StyledExtraInfo>
         Made by{' '}
@@ -25,7 +25,7 @@ const Heading = ({ title }) => {
         </a>
         .
       </StyledExtraInfo>
-    </React.Fragment>
+    </Fragment>
   );
 };
 

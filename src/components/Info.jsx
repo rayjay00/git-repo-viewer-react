@@ -26,11 +26,13 @@ export const StyledLink = styled.a`
 `;
 
 const Info = ({ name, description, url }) => {
+  const projectDescription = description && <p>{description}</p>;
+
   return (
     <React.Fragment>
       <StyledNameWrapper>
         <h4>{name}</h4>
-        <p>{description}</p>
+        {projectDescription}
         <StyledLink href={url}>See it on GitHub</StyledLink>
       </StyledNameWrapper>
     </React.Fragment>
